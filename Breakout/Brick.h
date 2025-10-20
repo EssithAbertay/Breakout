@@ -16,4 +16,6 @@ private:
     sf::RectangleShape _shape;
     bool _isDestroyed;
     float health, hit_time = 0, hit_time_max = 0.1;
+
+    void update_colour();
 };
