@@ -83,6 +83,10 @@ void GameManager::update(float dt)
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) _paddle->moveRight(dt);
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) _paddle->moveLeft(dt);
 
+
+    //fire gun
+    if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left)) gun->fire();
+
     // update everything 
     _paddle->update(dt);
     _ball->update(dt);
@@ -95,7 +99,7 @@ void GameManager::update(float dt)
     // Convert to world coordinates
     sf::Vector2f worldPosition = _window->mapPixelToCoords(mousePosition);
 
-    gun->update(worldPosition);
+    gun->update(dt, worldPosition);
 }
 
 void GameManager::loseLife()

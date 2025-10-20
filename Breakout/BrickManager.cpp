@@ -72,6 +72,34 @@ int BrickManager::checkCollision(sf::CircleShape& ball, sf::Vector2f& direction)
     return collisionResponse;
 }
 
+bool BrickManager::checkPointCollision(sf::Vector2f point)
+{
+    bool collision_response = false;
+
+    for (auto& brick : _bricks) {
+        if (!brick.getBounds().contains(point)) continue;
+
+        brick.decrease_health();
+        if (brick.get_health() <= 0)
+        {
+            brick = _bricks.back();
+            _bricks.pop_back();
+
+            sound.play();
+        }
+
+        collision_response = true;
+
+        break;
+    }
+    if (_bricks.size() == 0)
+    {
+        _gameManager->levelComplete();
+    }
+
+    return collision_response;
+}
+
 void BrickManager::update(float dt)
 {
     for (auto& brick : _bricks) {

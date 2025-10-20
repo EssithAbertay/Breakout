@@ -13,6 +13,8 @@ public:
     void render();
     int checkCollision(sf::CircleShape& ball, sf::Vector2f& direction);
 
+    bool checkPointCollision(sf::Vector2f point);
+
     void update(float dt);
 
 private:
