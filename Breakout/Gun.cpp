@@ -12,6 +12,16 @@ Gun::Gun(sf::RenderWindow* window, GameManager* gameManager) : _window(window), 
 	{
 		std::cout << "ERROR LOADING TEXTURE" << std::endl;
 	}
+
+	if (buffer.loadFromFile("sfx/bang.mp3"))
+	{
+		sound.setBuffer(buffer);
+	}
+	else
+	{
+		std::cout << "ERROR LOADING sound" << std::endl;
+	}
+
 }
 
 Gun::~Gun()
@@ -37,7 +47,7 @@ void Gun::fire()
 		_gameManager->getBrickManager()->checkPointCollision(current_position); //fire the gun wherever mouse is
 
 
-		//play audio here
+		sound.play();
 	}
 }
 

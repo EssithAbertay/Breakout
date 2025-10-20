@@ -1,5 +1,6 @@
 #pragma once
 #include "SFML/Graphics.hpp"
+#include "SFML/Audio.hpp"
 
 class GameManager;  // forward declaration
 
@@ -22,6 +23,10 @@ private:
 	GameManager* _gameManager;
 
 	sf::Vector2f current_position;
+
+
+	sf::SoundBuffer buffer; // Throws sf::Exception if an error occurs
+	sf::Sound sound;
 
 	float fire_cd = 0, fire_cd_max = 3;
 };
