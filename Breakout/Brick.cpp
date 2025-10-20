@@ -6,9 +6,11 @@ Brick::Brick(float x, float y, float width, float height, float starting_health)
     _shape.setPosition(x, y);
     _shape.setSize(sf::Vector2f(width, height));
 
-    update_colour();
 
     health = starting_health;
+    update_colour();
+
+
 }
 
 void Brick::render(sf::RenderWindow& window)
