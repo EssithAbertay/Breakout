@@ -100,6 +100,11 @@ void GameManager::update(float dt)
     sf::Vector2f worldPosition = _window->mapPixelToCoords(mousePosition);
 
     gun->update(dt, worldPosition);
+
+    if (shake_time > 0)
+    {
+        shake_screen(dt);
+    }
 }
 
 void GameManager::loseLife()
@@ -108,6 +113,8 @@ void GameManager::loseLife()
     _ui->lifeLost(_lives);
 
     // TODO screen shake.
+    shake_time = 0.5;
+
 }
 
 void GameManager::render()
@@ -125,6 +132,29 @@ void GameManager::levelComplete()
 {
     _levelComplete = true;
 }
+
+
+
+void GameManager::shake_screen(float dt)
+{
+    sf::View window_view = _window->getView();
+
+    shake_time -= dt;
+
+    double strength = 45 * shake_time;
+
+    float x_rand = rand() % int(_window->getSize().x / 10);
+    float x_offset = std::sin(strength) * x_rand;
+
+    float y_rand = rand() % int(_window->getSize().y / 10);
+    float y_offset = std::sin(strength) * y_rand;
+
+
+    window_view.setCenter({500 - x_offset, 400 - y_offset });
+    _window->setView(window_view);
+}
+
+
 
 sf::RenderWindow* GameManager::getWindow() const { return _window; }
 UI* GameManager::getUI() const { return _ui; }
