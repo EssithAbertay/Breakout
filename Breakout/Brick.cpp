@@ -22,9 +22,18 @@ sf::FloatRect Brick::getBounds() const
     return _shape.getGlobalBounds();
 }
 
+void Brick::update_hit_time(float time)
+{
+    hit_time += time;
+}
+
 void Brick::decrease_health()
 {
-    health--;
+    if (hit_time >= hit_time_max)
+    {
+        hit_time = 0;
+        health--;
+    }
 }
 
 float Brick::get_health()

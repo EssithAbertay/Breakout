@@ -7,11 +7,13 @@ public:
     void render(sf::RenderWindow& window);
     sf::FloatRect getBounds() const;
 
+    void update_hit_time(float time);
+
     void decrease_health();
     float get_health();
 
 private:
     sf::RectangleShape _shape;
     bool _isDestroyed;
-    float health;
+    float health, hit_time = 0, hit_time_max = 0.1;
 };

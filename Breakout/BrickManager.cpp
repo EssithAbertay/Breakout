@@ -41,7 +41,7 @@ int BrickManager::checkCollision(sf::CircleShape& ball, sf::Vector2f& direction)
         sf::FloatRect brickBounds = brick.getBounds();
 
         brick.decrease_health();
-
+        
         // default vertical bounce (collision is top/bottom)
         collisionResponse = 2;
         if (ballY > brickBounds.top && ballY < brickBounds.top + brickBounds.height)
@@ -63,4 +63,12 @@ int BrickManager::checkCollision(sf::CircleShape& ball, sf::Vector2f& direction)
         _gameManager->levelComplete();
     }
     return collisionResponse;
+}
+
+void BrickManager::update(float dt)
+{
+    for (auto& brick : _bricks) {
+        brick.update_hit_time(dt);
+    }
+
 }
