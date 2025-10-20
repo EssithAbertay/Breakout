@@ -28,6 +28,9 @@ private:
 	sf::SoundBuffer buffer; // Throws sf::Exception if an error occurs
 	sf::Sound sound;
 
+	sf::Font font;
+	sf::Text cooldown_text;
+
 	float fire_cd = 0, fire_cd_max = 3;
 };
 
