@@ -35,5 +35,7 @@ fire ball (green)
 
 
 
-10 minutes - fix the compiler issue. Removed the circular reference from PowerupBase
+Change 1 - fixed the compiler issue. Removed the circular reference from PowerupBase (10 minutes)
+
+Change 2 - added multiple health to bricks, the bricks have a different colour based on their health, this colour changes as they are hit (1 hour)
 
