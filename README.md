@@ -39,3 +39,5 @@ Change 1 - fixed the compiler issue. Removed the circular reference from Powerup
 
 Change 2 - added multiple health to bricks, the bricks have a different colour based on their health, this colour changes as they are hit (1 hour)
 
+Change 3 - added sfx on brick being destroyed (30 minutes)
+

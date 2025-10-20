@@ -8,7 +8,7 @@
 #include "MessagingSystem.h"
 #include "UI.h"
 
-
+#include "Gun.h"
 
 class GameManager {
 public:
@@ -49,4 +49,6 @@ private:
 
     static constexpr float PAUSE_TIME_BUFFER = 0.5f;
     static constexpr float POWERUP_FREQUENCY = 7.5f;    // time between minimum powerup spawn
+
+    Gun* gun;
 };

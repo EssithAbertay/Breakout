@@ -24,6 +24,8 @@ void GameManager::initialize()
     _powerupManager = new PowerupManager(_window, _paddle, _ball);
     _ui = new UI(_window, _lives, this);
 
+    gun = new Gun(_window);
+
     // Create bricks
     _brickManager->createBricks(5, 10, 80.0f, 30.0f, 5.0f);
 }
@@ -86,6 +88,14 @@ void GameManager::update(float dt)
     _ball->update(dt);
     _powerupManager->update(dt);
     _brickManager->update(dt);
+
+    // Get mouse position in window coordinates
+    sf::Vector2i mousePosition = sf::Mouse::getPosition(*_window);
+
+    // Convert to world coordinates
+    sf::Vector2f worldPosition = _window->mapPixelToCoords(mousePosition);
+
+    gun->update(worldPosition);
 }
 
 void GameManager::loseLife()
@@ -102,6 +112,7 @@ void GameManager::render()
     _ball->render();
     _brickManager->render();
     _powerupManager->render();
+    gun->render();
     _window->draw(_masterText);
     _ui->render();
 }
