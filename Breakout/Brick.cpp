@@ -54,6 +54,28 @@ void Brick::decrease_health()
     {
         hit_time = 0;
         health--;
+
+        switch (int(health))
+        {
+        case(1):
+            _shape.setFillColor(sf::Color::Red);
+            break;
+        case(2):
+            _shape.setFillColor(sf::Color::Yellow);
+            break;
+        case(3):
+            _shape.setFillColor(sf::Color::Blue);
+            break;
+        case(4):
+            _shape.setFillColor(sf::Color::Green);
+            break;
+        case(5):
+            _shape.setFillColor(sf::Color::Magenta);
+
+            break;
+        default:
+            break;
+        }
     }
 }
 
