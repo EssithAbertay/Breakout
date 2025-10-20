@@ -1,9 +1,14 @@
 #include "BrickManager.h"
 #include "GameManager.h"
 
+
+
 BrickManager::BrickManager(sf::RenderWindow* window, GameManager* gameManager)
     : _window(window), _gameManager(gameManager)
 {
+
+    buffer.loadFromFile("sfx/brick_destroyed.mp3");
+    sound.setBuffer(buffer);
 }
 
 void BrickManager::createBricks(int rows, int cols, float brickWidth, float brickHeight, float spacing)
@@ -55,6 +60,8 @@ int BrickManager::checkCollision(sf::CircleShape& ball, sf::Vector2f& direction)
         {
             brick = _bricks.back();
             _bricks.pop_back();
+
+            sound.play();
         }
         break;
     }
