@@ -34,10 +34,22 @@ fire ball (green)
 # Time Details and Changelist
 
 
+Ari Alexander Tannahill Thomson - 2204636
+
 
 Change 1 - fixed the compiler issue. Removed the circular reference from PowerupBase (10 minutes)
 
 Change 2 - added multiple health to bricks, the bricks have a different colour based on their health, this colour changes as they are hit (1 hour)
 
 Change 3 - added sfx on brick being destroyed (30 minutes)
+
+Change 4 - added a "gun" to the cursor that the player can shoot at the bricks every 3 seconds to damage them, it plays a sound effect also (1 hour)
+
+Change 5 - parameterised the powerup spawn chance (5 minutes)
+
+Change 6 - added screen shake on damage taken (45 mins)
+
+
+
+Total time spent - 3 hours 35 minutes
 
