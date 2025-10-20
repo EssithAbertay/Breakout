@@ -40,7 +40,7 @@ int BrickManager::checkCollision(sf::CircleShape& ball, sf::Vector2f& direction)
         float ballY = ballPosition.y + 0.5f * ball.getGlobalBounds().height;
         sf::FloatRect brickBounds = brick.getBounds();
 
-        brick.decrease_health();
+        brick.decrease_health(); //reduce health on hit
         
         // default vertical bounce (collision is top/bottom)
         collisionResponse = 2;
