@@ -18,7 +18,7 @@ void BrickManager::createBricks(int rows, int cols, float brickWidth, float bric
         for (int j = 0; j < cols; ++j) {
             float x = j * (brickWidth + spacing) + leftEdge;
             float y = i * (brickHeight + spacing) + TOP_PADDING;
-            _bricks.emplace_back(x, y, brickWidth, brickHeight, 3);
+            _bricks.emplace_back(x, y, brickWidth, brickHeight, 1+i); //bricks get stronger the closer they are, 1 hp minimum
         }
     }
 }
